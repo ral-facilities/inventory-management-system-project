@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  inventory-management-system-project:
+    container_name: inventory-management-system-project_container
+    build: .
+    volumes:
+      - ./src:/inventory-management-system-project-run/src
+      - ./public:/inventory-management-system-project-run/public
+    ports:
+      - 3000:3000
+    environment:
+      - WATCHPACK_POLLING=true
+    restart: on-failure
