@@ -1,15 +1,21 @@
+'use client';
+import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar,
   Box,
   Container,
+  IconButton,
   Link,
   List,
   ListItem,
   ListItemText,
+  Menu,
+  MenuItem,
   Stack,
   Toolbar,
   Typography,
 } from '@mui/material';
+import React from 'react';
 
 const sections = [
   { label: 'Introduction', id: 'introduction' },
@@ -19,64 +25,71 @@ const sections = [
   { label: 'Future Work', id: 'future-work' },
   { label: 'Contact Us', id: 'contact' },
 ];
-
-const APP_BAR_OFFSET = '204px';
+const APP_BAR_HEIGHT = '64px';
+const APP_BAR_OFFSET = APP_BAR_HEIGHT; // Offset for scroll margin
 
 export default function Home() {
   const appBarLogo = '';
   const appBarLogoAlt = '';
+
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+
+  const handleMenuClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <div style={{ minWidth: '200px', width: '100%' }}>
       <AppBar
+        position="static"
         sx={{
           width: '100%',
           position: 'sticky',
           top: 0,
           zIndex: 1000,
+          height: APP_BAR_HEIGHT,
         }}
       >
         <Toolbar
           sx={{
             position: 'relative',
-            minHeight: '64px',
-            py: 1,
-            flexWrap: 'wrap',
             display: 'flex',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
+            alignItems: 'center',
           }}
         >
-          <Box
-            sx={{ display: 'flex', justifyContent: 'center', width: '122px' }}
-          >
-            {appBarLogo && (
-              <>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={appBarLogo} alt={appBarLogoAlt} width="122px" />
-              </>
-            )}
-          </Box>
+          {appBarLogo && (
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                width: '122px',
+              }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={appBarLogo} alt={appBarLogoAlt} width="122px" />
+            </Box>
+          )}
           <Stack
             direction="row"
+            spacing={6}
+            maxWidth="lg"
             sx={{
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-              alignItems: 'center',
-              textAlign: 'center',
-              columnGap: 13,
-              px: 2,
-              maxWidth: '100%',
-              margin: '0 auto',
-              overflowX: 'hidden',
+              position: 'absolute',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              display: {
+                xs: 'none',
+                lg: 'flex',
+              },
             }}
           >
             {sections.map((section) => (
-              <Typography
-                variant="h6"
-                key={section.id}
-                component="span"
-                sx={{ whiteSpace: 'nowrap' }}
-                noWrap
-              >
+              <Typography variant="h6" key={section.id} component="span" noWrap>
                 <Link
                   href={`#${section.id}`}
                   underline="none"
@@ -91,8 +104,50 @@ export default function Home() {
               </Typography>
             ))}
           </Stack>
+
+          <>
+            <Box
+              sx={{
+                marginLeft: 'auto',
+                display: {
+                  xs: 'block',
+                  lg: 'none',
+                },
+              }}
+            >
+              <IconButton
+                color="inherit"
+                onClick={handleMenuClick}
+                aria-label="navigation menu"
+                size="large"
+              >
+                <MenuIcon />
+              </IconButton>
+            </Box>
+            <Menu
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+              transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+            >
+              {sections.map((section) => (
+                <MenuItem
+                  key={section.id}
+                  component="a"
+                  href={`#${section.id}`}
+                  onClick={handleClose}
+                >
+                  <Typography variant="h6" component="span">
+                    {section.label}
+                  </Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </>
         </Toolbar>
       </AppBar>
+
       <Box
         sx={{
           position: 'fixed',
@@ -413,7 +468,7 @@ export default function Home() {
                   <Typography variant="body1">
                     <strong>History</strong> – Keep a history of edits made to
                     the entities. For example, tracking the history of every
-                    single position/location of an optic will allow EPAC to see
+                    single position/location of an optic will allow users to see
                     where it has moved throughout its lifetime. They will also
                     be able to work out how many optics have been damaged in a
                     particular location.

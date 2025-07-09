@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Inventory Management System',
   description:
-    'A comprehensive inventory management system for efficient stock control and tracking.',
+    'The Inventory Management System (IMS) is a web-based platform for tracking, organising, and managing high-value scientific and industrial components. Designed to replace spreadsheets and static records, IMS improves availability, reduces downtime, and scales with operational complexity.',
 };
 
 export default function RootLayout({
