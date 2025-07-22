@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Inventory Management System',
   description:
     'The Inventory Management System (IMS) is a web-based platform for tracking, organising, and managing high-value scientific and industrial components. Designed to replace spreadsheets and static records, IMS improves availability, reduces downtime, and scales with operational complexity.',
+  icons: { icon: '/inventory-management-system-project/favicon.ico' },
 };
 
 export default function RootLayout({
