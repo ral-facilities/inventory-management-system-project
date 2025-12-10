@@ -210,13 +210,15 @@ export default function Home() {
           </Typography>
 
           <Typography variant="body1" sx={{ mb: 3 }}>
-            IMS offers a centralised web-based platform for managing inventory across
-            systems. Categorise different parts, create individual records for physical entities. Move them 
-between systems, tracking their usage condition. IMS keeps track of spares, so you will 
-always know when the best time to order new parts is. IMS enhances availability, supports forecasting, reduces
-            operational costs, and minimises downtime. The system is
-            continuously evolving, with new features and improvements being
+            IMS offers a centralised web-based platform for managing inventory across complex infrastructures. It can categorise 
+            different parts, create individual records for physical entities and move these records between systems, tracking their usage condition. 
+            IMS also keeps track of spares, so you will always know when the best time to order new parts is. IMS enhances availability, supports forecasting, reduces
+            operational costs, and minimises downtime. The system is continuously evolving, with new features and improvements being
             released based on user feedback and operational needs.
+          </Typography>
+
+          <Typography variant="body1" sx={{ mb: 3 }}>
+            Below is an example use case of IMS for a Scientific Research Facility:
           </Typography>
 
           <Box sx={{ mx: 'auto', width: '100%', maxWidth: 'lg' }}>
@@ -389,8 +391,7 @@ always know when the best time to order new parts is. IMS enhances availability,
             Please email the development team at{' '}
             <a href="mailto:ims-support@stfc365.onmicrosoft.com?subject=IMS Query">
               ims-support@stfc365.onmicrosoft.com
-            </a>
-            for any enquiries.
+            </a> for any enquiries.
           </Typography>
         </Box>
       </Container>
