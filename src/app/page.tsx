@@ -26,7 +26,6 @@ const sections = [
   { label: 'Quick Glance', id: 'overview' },
   { label: 'Applications', id: 'applications' },
   { label: 'The Software', id: 'software' },
-  { label: 'Future Work', id: 'future-work' },
   { label: 'Contact Us', id: 'contact' },
 ];
 const APP_BAR_HEIGHT = '64px';
@@ -205,7 +204,7 @@ export default function Home() {
           </Typography>
 
           <Typography variant="body1" sx={{ mb: 3 }}>
-            Scientific and industrial facilities rely on complex systems such as
+            Scientific and industrial facilities use complex systems such as
             vacuum chambers, detectors, lasers, and specialised equipment—where
             downtime is costly and disruptive. Traditional inventory tracking
             methods like spreadsheets and static documents cannot keep pace with
@@ -346,9 +345,8 @@ export default function Home() {
                   primary={
                     <Typography variant="body1">
                       <Bold>Predictive spare insights</Bold> that estimate when
-                      new spare parts should be ordered based on expected
-                      lifetime, time to replace, items in use, and current spare
-                      counts
+                      new parts should be ordered based on expected lifetime,
+                      time to replace, items in use, and current spare counts
                       <Typography component="span" sx={{ ml: 0.25 }}>
                         *
                       </Typography>
@@ -707,83 +705,6 @@ export default function Home() {
           >
             IMS Architecture Diagram
           </Typography>
-        </Box>
-
-        <Box id="future-work" sx={{ mb: 6, scrollMarginTop: APP_BAR_OFFSET }}>
-          <Typography variant="h4" gutterBottom>
-            Future Work
-          </Typography>
-          <Typography variant="body1">
-            The following are future work items and planned improvements for
-            IMS:
-          </Typography>
-          <List sx={{ pl: 3 }}>
-            <ListItem disableGutters>
-              <ListItemIcon sx={{ minWidth: 28 }}>
-                <CircleIcon sx={{ fontSize: 8 }} />
-              </ListItemIcon>
-              <ListItemText
-                primary={
-                  <Typography variant="body1">
-                    <Bold>Observability</Bold> – Introduce observability tools
-                    to collect and analyse telemetry data, providing deeper
-                    insights into system performance and health. This will
-                    enable faster issue detection and improved troubleshooting.
-                  </Typography>
-                }
-              />
-            </ListItem>
-            <ListItem disableGutters>
-              <ListItemIcon sx={{ minWidth: 28 }}>
-                <CircleIcon sx={{ fontSize: 8 }} />
-              </ListItemIcon>
-              <ListItemText
-                primary={
-                  <Typography variant="body1">
-                    <Bold>Kubernetes</Bold> – Transition from Docker Compose to
-                    a Kubernetes type of deployment to improve scalability,
-                    reliability, and deployment automation. This will allow
-                    better workload management, support for high availability,
-                    and streamlined integration with Continuous Integration and
-                    Continuous Delivery/Deployment pipelines.
-                  </Typography>
-                }
-              />
-            </ListItem>
-            <ListItem disableGutters>
-              <ListItemIcon sx={{ minWidth: 28 }}>
-                <CircleIcon sx={{ fontSize: 8 }} />
-              </ListItemIcon>
-              <ListItemText
-                primary={
-                  <Typography variant="body1">
-                    <Bold>History</Bold> – Keep a history of edits made to the
-                    entities. For example, tracking the history of every single
-                    position/location of an optic will allow users to see where
-                    it has moved throughout its lifetime. They will also be able
-                    to work out how many optics have been damaged in a
-                    particular location.
-                  </Typography>
-                }
-              />
-            </ListItem>
-            <ListItem disableGutters>
-              <ListItemIcon sx={{ minWidth: 28 }}>
-                <CircleIcon sx={{ fontSize: 8 }} />
-              </ListItemIcon>
-              <ListItemText
-                primary={
-                  <Typography variant="body1">
-                    <Bold>Criticality</Bold> – Calculates the minimum number of
-                    spare parts required for each catalogue item based on its
-                    importance to facility operations. This ensures that enough
-                    spares are available to prevent downtime and maintain
-                    continuous
-                  </Typography>
-                }
-              />
-            </ListItem>
-          </List>
         </Box>
 
         <Box id="contact" sx={{ mb: 6, scrollMarginTop: APP_BAR_OFFSET }}>
