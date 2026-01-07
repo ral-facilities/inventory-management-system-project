@@ -205,7 +205,7 @@ export default function Home() {
 
           <Typography variant="body1" sx={{ mb: 3 }}>
             Scientific and industrial facilities use complex systems such as
-            vacuum chambers, detectors, lasers, and specialised equipment—where
+            vacuum chambers, detectors, lasers, and specialised equipment, where
             downtime is costly and disruptive. Traditional inventory tracking
             methods like spreadsheets and static documents cannot keep pace with
             growing operational complexity. As facilities expand, a centralised,
