@@ -1,4 +1,5 @@
 'use client';
+import CircleIcon from '@mui/icons-material/Circle';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar,
@@ -8,6 +9,7 @@ import {
   Link,
   List,
   ListItem,
+  ListItemIcon,
   ListItemText,
   Menu,
   MenuItem,
@@ -21,12 +23,19 @@ const sections = [
   { label: 'Introduction', id: 'introduction' },
   { label: 'The Problem', id: 'problem' },
   { label: 'Our Solution', id: 'solution' },
-  { label: 'Applications', id: 'applications' },
   { label: 'Quick Glance', id: 'overview' },
+  { label: 'Applications', id: 'applications' },
+  { label: 'The Software', id: 'software' },
   { label: 'Contact Us', id: 'contact' },
 ];
 const APP_BAR_HEIGHT = '64px';
 const APP_BAR_OFFSET = APP_BAR_HEIGHT; // Offset for scroll margin
+
+const Bold = ({ children }: { children: React.ReactNode }) => (
+  <Typography component="span" fontWeight="bold" fontSize="inherit">
+    {children}
+  </Typography>
+);
 
 export default function Home() {
   const appBarLogo = '';
@@ -77,7 +86,7 @@ export default function Home() {
           <Stack
             direction="row"
             spacing={6}
-            maxWidth="lg"
+            maxWidth="xl"
             sx={{
               position: 'absolute',
               left: '50%',
@@ -171,7 +180,7 @@ export default function Home() {
       <Container maxWidth="lg" sx={{ py: 6 }}>
         <Box id="title" sx={{ mb: 6, textAlign: 'center' }}>
           <Typography variant="h2" color="primary" gutterBottom>
-            Inventory Management System
+            Inventory Management System (IMS)
           </Typography>
         </Box>
 
@@ -190,18 +199,81 @@ export default function Home() {
         </Box>
 
         <Box id="problem" sx={{ mb: 6, scrollMarginTop: APP_BAR_OFFSET }}>
-            <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             The Problem
           </Typography>
-          
-          <Typography variant="body1">
-            Modern research facilities rely on complex infrastructures where downtime 
-            can be costly and disruptive. Traditional inventory tracking methods 
-            such as spreadsheets and static documents struggle to scale with growing 
-            operational complexity. As facilities expand, the need for a centralised,
-            dynamic, and scalable inventory solution becomes critical to ensure
-            efficiency and reduce downtime.
+
+          <Typography variant="body1" sx={{ mb: 3 }}>
+            Scientific and industrial facilities use complex systems such as
+            vacuum chambers, detectors, lasers, and specialised equipment, where
+            downtime is costly and disruptive. Traditional inventory tracking
+            methods like spreadsheets and static documents cannot keep pace with
+            growing operational complexity. As facilities expand, a centralised,
+            dynamic, and intelligent inventory solution becomes essential to
+            maintain efficiency and minimise downtime.
           </Typography>
+
+          <Typography variant="body1" gutterBottom>
+            Facilities often struggle with:
+          </Typography>
+
+          <List sx={{ pl: 1, mb: 3 }}>
+            <ListItem disableGutters>
+              <ListItemIcon sx={{ minWidth: 28 }}>
+                <CircleIcon sx={{ fontSize: 8 }} />
+              </ListItemIcon>
+              <ListItemText
+                primary={
+                  <Typography variant="body1">
+                    <Bold>Limited visibility</Bold> — Unclear what parts exist,
+                    where they are, and their condition.
+                  </Typography>
+                }
+              />
+            </ListItem>
+
+            <ListItem disableGutters>
+              <ListItemIcon sx={{ minWidth: 28 }}>
+                <CircleIcon sx={{ fontSize: 8 }} />
+              </ListItemIcon>
+              <ListItemText
+                primary={
+                  <Typography variant="body1">
+                    <Bold>Fragmented catalogues</Bold> — Data scattered across
+                    spreadsheets and local documentation.
+                  </Typography>
+                }
+              />
+            </ListItem>
+
+            <ListItem disableGutters>
+              <ListItemIcon sx={{ minWidth: 28 }}>
+                <CircleIcon sx={{ fontSize: 8 }} />
+              </ListItemIcon>
+              <ListItemText
+                primary={
+                  <Typography variant="body1">
+                    <Bold>Inefficient spare-part management</Bold> — Leads to
+                    shortages, overstocking, and delayed maintenance.
+                  </Typography>
+                }
+              />
+            </ListItem>
+
+            <ListItem disableGutters>
+              <ListItemIcon sx={{ minWidth: 28 }}>
+                <CircleIcon sx={{ fontSize: 8 }} />
+              </ListItemIcon>
+              <ListItemText
+                primary={
+                  <Typography variant="body1">
+                    <Bold>Lack of predictive insights</Bold> — No forecasting
+                    for part lifetimes or replacement needs.
+                  </Typography>
+                }
+              />
+            </ListItem>
+          </List>
         </Box>
 
         <Box id="solution" sx={{ mb: 6, scrollMarginTop: APP_BAR_OFFSET }}>
@@ -210,90 +282,139 @@ export default function Home() {
           </Typography>
 
           <Typography variant="body1" sx={{ mb: 3 }}>
-            IMS offers a centralised web-based platform for managing inventory across complex infrastructures. It can categorise 
-            different parts, create individual records for physical entities and move these records between systems, tracking their usage condition. 
-            IMS also keeps track of spares, so you will always know when the best time to order new parts is. IMS enhances availability, supports forecasting, reduces
-            operational costs, and minimises downtime. The system is continuously evolving, with new features and improvements being
-            released based on user feedback and operational needs.
+            IMS provides a web-based system to store, track, move, and itemise
+            your inventory. ​ Categorise different parts, create individual
+            records for physical entities. Move them between systems, tracking
+            their usage status. IMS keeps track of spares, so you will always
+            know when the best time to order new parts is.
           </Typography>
 
-          <Typography variant="body1" sx={{ mb: 3 }}>
-            Below is an example use case of IMS for a Scientific Research Facility:
-          </Typography>
+          <Box sx={{ mb: 6 }}>
+            <Typography variant="body1" gutterBottom>
+              IMS provides:
+            </Typography>
 
-          <Box sx={{ mx: 'auto', width: '100%', maxWidth: 'lg' }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={'/inventory-management-system-project/ims-systems-perspective-detailed.png'}
-                  alt={'IMS architecture overview'}
-                  style={{
-                    width: '100%',
-                    height: 'auto',
-                    borderRadius: 8,
-                    background: '#fff',
-                  }}
+            <List sx={{ pl: 1 }}>
+              <ListItem disableGutters>
+                <ListItemIcon sx={{ minWidth: 28 }}>
+                  <CircleIcon sx={{ fontSize: 8 }} />
+                </ListItemIcon>
+                <ListItemText
+                  primary={
+                    <Typography variant="body1">
+                      <Bold>A centralised, browsable catalogue</Bold> of all
+                      components used in the facility.
+                    </Typography>
+                  }
                 />
-                <Typography
-                  variant="caption"
-                  display="block"
-                  align="center"
-                  sx={{ my: 1 }}
-                >
-                  <strong>IMS structure overview:</strong> Detailed categorisation, for catalogue items and systems. 
-                  Items which can move dynamically between systems. Our solution provides a comprhensive overview of your inventory.
-                  
-                </Typography>
-              </Box>
-        </Box>
+              </ListItem>
 
-        <Box id="applications" sx={{ mb: 6, scrollMarginTop: APP_BAR_OFFSET }}>
-            <Typography variant="h4" gutterBottom>
-            Applications
-          </Typography>
-          <Typography variant="body1">
-            How can IMS apply to you
-          </Typography>
-          <List sx={{ pl: 3, mb: 2 }}>
-            <ListItem disableGutters>
-              <ListItemText
-                primary={
-                  <Typography variant="body1">
-                    <strong>Transportation & Logistics</strong> - Manage parts for vehicles, equipment, and infrastructure across depots and distribution hubs.
-                  </Typography>
+              <ListItem disableGutters>
+                <ListItemIcon sx={{ minWidth: 28 }}>
+                  <CircleIcon sx={{ fontSize: 8 }} />
+                </ListItemIcon>
+                <ListItemText
+                  primary={
+                    <Typography variant="body1">
+                      <Bold>Real-time tracking</Bold> of all physical parts as
+                      they move through storage, operation, and scrap.
+                    </Typography>
+                  }
+                />
+              </ListItem>
+
+              <ListItem disableGutters>
+                <ListItemIcon sx={{ minWidth: 28 }}>
+                  <CircleIcon sx={{ fontSize: 8 }} />
+                </ListItemIcon>
+                <ListItemText
+                  primary={
+                    <Typography variant="body1">
+                      <Bold>Automated spare-part calculations</Bold> based on
+                      current stock, location, and usage conditions.
+                    </Typography>
+                  }
+                />
+              </ListItem>
+
+              <ListItem disableGutters>
+                <ListItemIcon sx={{ minWidth: 28 }}>
+                  <CircleIcon sx={{ fontSize: 8 }} />
+                </ListItemIcon>
+                <ListItemText
+                  primary={
+                    <Typography variant="body1">
+                      <Bold>Predictive spare insights</Bold> that estimate when
+                      new parts should be ordered based on expected lifetime,
+                      time to replace, items in use, and current spare counts
+                      <Typography component="span" sx={{ ml: 0.25 }}>
+                        *
+                      </Typography>
+                      .
+                    </Typography>
+                  }
+                />
+              </ListItem>
+
+              <ListItem disableGutters>
+                <ListItemIcon sx={{ minWidth: 28 }}>
+                  <CircleIcon sx={{ fontSize: 8 }} />
+                </ListItemIcon>
+                <ListItemText
+                  primary={
+                    <Typography variant="body1">
+                      <Bold>Predictive part lifetime insights</Bold> that
+                      estimate part lifetimes by analysing historical usage and
+                      failure data
+                      <Typography component="span" sx={{ ml: 0.25 }}>
+                        *
+                      </Typography>
+                      .
+                    </Typography>
+                  }
+                />
+              </ListItem>
+            </List>
+
+            <Typography variant="caption" sx={{ display: 'block', mt: 1 }}>
+              *This functionality is currently being implemented.
+            </Typography>
+          </Box>
+          <Box>
+            <Typography variant="body1" sx={{ mb: 3 }}>
+              Below is an example use case of IMS for a Scientific Research
+              Facility:
+            </Typography>
+
+            <Box sx={{ mx: 'auto', width: '100%', maxWidth: 'lg' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={
+                  '/inventory-management-system-project/ims-systems-perspective-detailed.png'
                 }
+                alt={'IMS architecture overview'}
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  borderRadius: 8,
+                  background: '#fff',
+                }}
               />
-            </ListItem>
-            <ListItem disableGutters>
-              <ListItemText
-                primary={
-                  <Typography variant="body1">
-                    <strong>Manufacturing</strong> - Manage machine components, tooling, and maintenance-critical parts across production lines.
-                  </Typography>
-                }
-              />
-            </ListItem>
-            <ListItem disableGutters>
-              <ListItemText
-                primary={
-                  <Typography variant="body1">
-                    <strong>Healthcare</strong> - Manage parts for equipment used at healthcare facilities.
-                  </Typography>
-                }
-              />
-            </ListItem>
-            <ListItem disableGutters>
-              <ListItemText
-                primary={
-                  <Typography variant="body1">
-                    <strong>Research Facilities</strong> - Manage specialised parts for instruments, laboratories, and experimental infrastructure.
-                  </Typography>
-                }
-              />
-            </ListItem>
-          </List>
+              <Typography
+                variant="caption"
+                display="block"
+                align="center"
+                sx={{ my: 1 }}
+              >
+                <Bold>IMS structure overview:</Bold> Detailed categorisation,
+                for catalogue items and systems. Items which can move
+                dynamically between systems. Our solution provides a
+                comprhensive overview of your inventory.
+              </Typography>
+            </Box>
+          </Box>
         </Box>
-          
-        <Box id='overview'>
+        <Box id="overview" sx={{ mb: 6, scrollMarginTop: APP_BAR_OFFSET }}>
           <Typography variant="h4" gutterBottom>
             Quick Glance
           </Typography>
@@ -310,12 +431,13 @@ export default function Home() {
                 alt: 'Catalogue Items Table',
                 caption: (
                   <>
-                    <strong>Catalogue Items Table:</strong> Displays structured
+                    <Bold>Catalogue Items Table:</Bold> Displays structured
                     commercial representations of physical items, including
                     names, descriptions, lifecycle status, and procurement
                     details - supporting efficient planning, quoting, and
-                    inventory management.
-                    Here you can also view the number of <strong>spare items</strong>, a key indicator for when to purchase more inventory.
+                    inventory management. Here you can also view the number of{' '}
+                    <Bold>spare items</Bold>, a key indicator for when to
+                    purchase more inventory.
                   </>
                 ),
               },
@@ -324,7 +446,7 @@ export default function Home() {
                 alt: 'Catalogue Item Landing Page',
                 caption: (
                   <>
-                    <strong>Catalogue Item Landing Page:</strong> Provides a
+                    <Bold>Catalogue Item Landing Page:</Bold> Provides a
                     centralised view of a catalogue item, combining technical
                     specifications, metadata, gallery, attachments, and notes to
                     support procurement, documentation, and lifecycle tracking.
@@ -336,11 +458,11 @@ export default function Home() {
                 alt: 'Subsystem Dashboard',
                 caption: (
                   <>
-                    <strong>Subsystem Dashboard:</strong> Offers a comprehensive
+                    <Bold>Subsystem Dashboard:</Bold> Offers a comprehensive
                     view of the &apos;100J Pump Laser (Demo Backup)&apos;
-                    subsystem, displaying its type, associated items, metadata, images,
-                    and attachments to support high-priority component tracking
-                    and lifecycle management.
+                    subsystem, displaying its type, associated items, metadata,
+                    images, and attachments to support high-priority component
+                    tracking and lifecycle management.
                   </>
                 ),
               },
@@ -349,11 +471,12 @@ export default function Home() {
                 alt: 'Move To Dialog',
                 caption: (
                   <>
-                    <strong>Moving Items:</strong> The &apos;Move To&apos; Dialog facilitates the
-                    transfer of physical items from storage into the &apos;100J
-                    Pump Laser (Demo Backup)&apos; subsystem - ensuring accurate
-                    tracking and seamless integration within the system
-                    hierarchy. Movement of items between systems is restricted based on rules.
+                    <Bold>Moving Items:</Bold> The &apos;Move To&apos; Dialog
+                    facilitates the transfer of physical items from storage into
+                    the &apos;100J Pump Laser (Demo Backup)&apos; subsystem -
+                    ensuring accurate tracking and seamless integration within
+                    the system hierarchy. Movement of items between systems is
+                    restricted based on rules.
                   </>
                 ),
               },
@@ -383,15 +506,217 @@ export default function Home() {
           </Stack>
         </Box>
 
-        <Box id="contact" sx={{ mb: 6, scrollMarginTop: APP_BAR_OFFSET, paddingTop: '32px' }}>
+        <Box id="applications" sx={{ mb: 6, scrollMarginTop: APP_BAR_OFFSET }}>
+          <Typography variant="h4" gutterBottom>
+            Applications
+          </Typography>
+          <Typography variant="body1">How can IMS apply to you</Typography>
+          <List sx={{ pl: 3, mb: 2 }}>
+            <ListItem disableGutters>
+              <ListItemIcon sx={{ minWidth: 28 }}>
+                <CircleIcon sx={{ fontSize: 8 }} />
+              </ListItemIcon>
+              <ListItemText
+                primary={
+                  <Typography variant="body1">
+                    <Bold>Transportation & Logistics</Bold> - Manage parts for
+                    vehicles, equipment, and infrastructure across depots and
+                    distribution hubs.
+                  </Typography>
+                }
+              />
+            </ListItem>
+            <ListItem disableGutters>
+              <ListItemIcon sx={{ minWidth: 28 }}>
+                <CircleIcon sx={{ fontSize: 8 }} />
+              </ListItemIcon>
+              <ListItemText
+                primary={
+                  <Typography variant="body1">
+                    <Bold>Manufacturing</Bold> - Manage machine components,
+                    tooling, and maintenance-critical parts across production
+                    lines.
+                  </Typography>
+                }
+              />
+            </ListItem>
+            <ListItem disableGutters>
+              <ListItemIcon sx={{ minWidth: 28 }}>
+                <CircleIcon sx={{ fontSize: 8 }} />
+              </ListItemIcon>
+              <ListItemText
+                primary={
+                  <Typography variant="body1">
+                    <Bold>Healthcare</Bold> - Manage parts for equipment used at
+                    healthcare facilities.
+                  </Typography>
+                }
+              />
+            </ListItem>
+            <ListItem disableGutters>
+              <ListItemIcon sx={{ minWidth: 28 }}>
+                <CircleIcon sx={{ fontSize: 8 }} />
+              </ListItemIcon>
+              <ListItemText
+                primary={
+                  <Typography variant="body1">
+                    <Bold>Research Facilities</Bold> - Manage specialised parts
+                    for instruments, laboratories, and experimental
+                    infrastructure.
+                  </Typography>
+                }
+              />
+            </ListItem>
+          </List>
+        </Box>
+
+        <Box id="software" sx={{ mb: 6, scrollMarginTop: APP_BAR_OFFSET }}>
+          <Typography variant="h4" gutterBottom>
+            The Software
+          </Typography>
+          <Typography variant="body1">
+            IMS is built using a modular microservice architecture:
+          </Typography>
+          <List sx={{ pl: 3, mb: 2 }}>
+            <ListItem disableGutters>
+              <ListItemIcon sx={{ minWidth: 28 }}>
+                <CircleIcon sx={{ fontSize: 8 }} />
+              </ListItemIcon>
+              <ListItemText
+                primary={
+                  <Typography variant="body1">
+                    <Link
+                      href="https://github.com/ral-facilities/inventory-management-system-api"
+                      target="_blank"
+                      rel="noopener"
+                      fontWeight="bold"
+                    >
+                      IMS API
+                    </Link>{' '}
+                    – Manages core inventory entities such as items and
+                    catalogues.
+                  </Typography>
+                }
+              />
+            </ListItem>
+            <ListItem disableGutters>
+              <ListItemIcon sx={{ minWidth: 28 }}>
+                <CircleIcon sx={{ fontSize: 8 }} />
+              </ListItemIcon>
+              <ListItemText
+                primary={
+                  <Typography variant="body1">
+                    <Link
+                      href="https://github.com/ral-facilities/object-storage-api"
+                      target="_blank"
+                      rel="noopener"
+                      fontWeight="bold"
+                    >
+                      Object Storage API
+                    </Link>{' '}
+                    – Handles file attachments and images.
+                  </Typography>
+                }
+              />
+            </ListItem>
+            <ListItem disableGutters>
+              <ListItemIcon sx={{ minWidth: 28 }}>
+                <CircleIcon sx={{ fontSize: 8 }} />
+              </ListItemIcon>
+              <ListItemText
+                primary={
+                  <Typography variant="body1">
+                    <Link
+                      href="https://github.com/ral-facilities/ldap-jwt-auth"
+                      target="_blank"
+                      rel="noopener"
+                      fontWeight="bold"
+                    >
+                      LDAP JWT Auth
+                    </Link>{' '}
+                    – Provides secure access using token-based authentication.
+                  </Typography>
+                }
+              />
+            </ListItem>
+          </List>
+          <Typography variant="body1">
+            The frontend is composed of micro frontends for flexibility and
+            scalability:
+          </Typography>
+          <List sx={{ pl: 3 }}>
+            <ListItem disableGutters>
+              <ListItemIcon sx={{ minWidth: 28 }}>
+                <CircleIcon sx={{ fontSize: 8 }} />
+              </ListItemIcon>
+              <ListItemText
+                primary={
+                  <Typography variant="body1">
+                    <Link
+                      href="https://github.com/ral-facilities/inventory-management-system"
+                      target="_blank"
+                      rel="noopener"
+                      fontWeight="bold"
+                    >
+                      IMS UI
+                    </Link>{' '}
+                    – User interface for interacting with inventory data.
+                  </Typography>
+                }
+              />
+            </ListItem>
+            <ListItem disableGutters>
+              <ListItemIcon sx={{ minWidth: 28 }}>
+                <CircleIcon sx={{ fontSize: 8 }} />
+              </ListItemIcon>
+              <ListItemText
+                primary={
+                  <Typography variant="body1">
+                    <Link
+                      href="https://github.com/ral-facilities/scigateway"
+                      target="_blank"
+                      rel="noopener"
+                      fontWeight="bold"
+                    >
+                      SciGateway UI
+                    </Link>{' '}
+                    – Manages authentication and navigation across modules.
+                  </Typography>
+                }
+              />
+            </ListItem>
+          </List>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/inventory-management-system-project/ims-architecture-diagram.png"
+            alt="IMS Architecture Diagram"
+            style={{
+              width: '100%',
+              maxWidth: 'lg',
+              height: 'auto',
+              marginTop: '20px',
+            }}
+          />
+          <Typography
+            variant="caption"
+            display="block"
+            align="center"
+            sx={{ mt: 1 }}
+          >
+            IMS Architecture Diagram
+          </Typography>
+        </Box>
+
+        <Box id="contact" sx={{ mb: 6, scrollMarginTop: APP_BAR_OFFSET }}>
           <Typography variant="h4" gutterBottom>
             Contact Us
           </Typography>
           <Typography variant="body1">
             Please email the development team at{' '}
-            <a href="mailto:ims-support@stfc365.onmicrosoft.com?subject=IMS Query">
+            <Link href="mailto:ims-support@stfc365.onmicrosoft.com?subject=IMS Query">
               ims-support@stfc365.onmicrosoft.com
-            </a> for any enquiries.
+            </Link>{' '}
+            for any enquiries.
           </Typography>
         </Box>
       </Container>
