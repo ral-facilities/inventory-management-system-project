@@ -330,6 +330,24 @@ export default function Home() {
                 <ListItemText
                   primary={
                     <Typography variant="body1">
+                      <Bold>
+                        Bulk import of catalogue items via spreadsheet
+                      </Bold>{' '}
+                      using a downloadable template with built-in validation.
+                      Uploaded spreadsheets are automatically validated before
+                      import to ensure data quality and consistency.
+                    </Typography>
+                  }
+                />
+              </ListItem>
+
+              <ListItem disableGutters>
+                <ListItemIcon sx={{ minWidth: 28 }}>
+                  <CircleIcon sx={{ fontSize: 8 }} />
+                </ListItemIcon>
+                <ListItemText
+                  primary={
+                    <Typography variant="body1">
                       <Bold>Automated spare-part calculations</Bold> based on
                       current stock, location, and usage conditions.
                     </Typography>
@@ -346,11 +364,7 @@ export default function Home() {
                     <Typography variant="body1">
                       <Bold>Predictive spare insights</Bold> that estimate when
                       new parts should be ordered based on expected lifetime,
-                      time to replace, items in use, and current spare counts
-                      <Typography component="span" sx={{ ml: 0.25 }}>
-                        *
-                      </Typography>
-                      .
+                      time to replace, items in use, and current spare counts.
                     </Typography>
                   }
                 />
@@ -435,9 +449,26 @@ export default function Home() {
                     commercial representations of physical items, including
                     names, descriptions, lifecycle status, and procurement
                     details - supporting efficient planning, quoting, and
-                    inventory management. Here you can also view the number of{' '}
-                    <Bold>spare items</Bold>, a key indicator for when to
-                    purchase more inventory.
+                    inventory management. Colour-coded indicators help users
+                    quickly identify components that may require attention.{' '}
+                    <Bold>Criticality</Bold> (predictive spare-part insights),
+                    alongside the number of <Bold>spare items</Bold>, helps
+                    inform inventory purchasing decisions.
+                  </>
+                ),
+              },
+              {
+                src: '/inventory-management-system-project/catalogue-item-spreadsheet-import.png',
+                alt: 'Spreadsheet Import',
+                caption: (
+                  <>
+                    <Bold>Catalogue Items Spreadsheet Import:</Bold> Enables the
+                    bulk import of catalogue items using a downloadable template
+                    with built-in validation. Uploaded spreadsheets undergo a
+                    dedicated validation step, with any errors and warnings
+                    highlighted for review and correction. Only spreadsheets
+                    that successfully pass validation can proceed to the import
+                    stage.
                   </>
                 ),
               },
@@ -460,9 +491,12 @@ export default function Home() {
                   <>
                     <Bold>Subsystem Dashboard:</Bold> Offers a comprehensive
                     view of the &apos;100J Pump Laser (Demo Backup)&apos;
-                    subsystem, displaying its type, associated items, metadata,
-                    images, and attachments to support high-priority component
-                    tracking and lifecycle management.
+                    subsystem, displaying its type, importance, associated
+                    items, metadata, images, and attachments.{' '}
+                    <Bold>Criticality</Bold> (predictive spare-part insights) is
+                    represented through red error indicators and colour-coded
+                    highlighting, helping users quickly identify systems and
+                    components that may require attention.
                   </>
                 ),
               },
@@ -519,6 +553,20 @@ export default function Home() {
               <ListItemText
                 primary={
                   <Typography variant="body1">
+                    <Bold>Research Facilities</Bold> - Manage specialised parts
+                    for instruments, laboratories, and experimental
+                    infrastructure.
+                  </Typography>
+                }
+              />
+            </ListItem>
+            <ListItem disableGutters>
+              <ListItemIcon sx={{ minWidth: 28 }}>
+                <CircleIcon sx={{ fontSize: 8 }} />
+              </ListItemIcon>
+              <ListItemText
+                primary={
+                  <Typography variant="body1">
                     <Bold>Transportation & Logistics</Bold> - Manage parts for
                     vehicles, equipment, and infrastructure across depots and
                     distribution hubs.
@@ -553,20 +601,6 @@ export default function Home() {
                 }
               />
             </ListItem>
-            <ListItem disableGutters>
-              <ListItemIcon sx={{ minWidth: 28 }}>
-                <CircleIcon sx={{ fontSize: 8 }} />
-              </ListItemIcon>
-              <ListItemText
-                primary={
-                  <Typography variant="body1">
-                    <Bold>Research Facilities</Bold> - Manage specialised parts
-                    for instruments, laboratories, and experimental
-                    infrastructure.
-                  </Typography>
-                }
-              />
-            </ListItem>
           </List>
         </Box>
 
@@ -575,7 +609,11 @@ export default function Home() {
             The Software
           </Typography>
           <Typography variant="body1">
-            IMS is built using a modular microservice architecture:
+            IMS is built using a modular microservice architecture. The
+            repositories listed below form the core of the IMS platform and are
+            openly available. The complete solution also includes a number of
+            supporting services, integrations, and operational components that
+            are maintained in private repositories.
           </Typography>
           <List sx={{ pl: 3, mb: 2 }}>
             <ListItem disableGutters>
@@ -689,7 +727,7 @@ export default function Home() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/inventory-management-system-project/ims-architecture-diagram.png"
-            alt="IMS Architecture Diagram"
+            alt="IMS Core Architecture Diagram"
             style={{
               width: '100%',
               maxWidth: 'lg',
@@ -703,7 +741,7 @@ export default function Home() {
             align="center"
             sx={{ mt: 1 }}
           >
-            IMS Architecture Diagram
+            IMS Core Architecture Diagram
           </Typography>
         </Box>
 
